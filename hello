@@ -1,0 +1,21 @@
+def main():
+    # Ask the user the question
+    response = input("Are you baobao? ").strip().lower()
+
+    # Define possible responses
+    positive_responses = ['y', 'yes', 'ya', 'positive', 'uhuh']
+    negative_responses = ['n', 'no', 'nah', 'not baobao']
+    unsure_responses = ['maybe', 'perhaps']
+
+    # Check the response and print the corresponding message
+    if response in positive_responses:
+        print("nail clipper baobao")
+    elif response in negative_responses:
+        print("go awayyy, bring baobao")
+    elif response in unsure_responses:
+        print("come back again when you are sure")
+    else:
+        print("Invalid response. Please answer with 'y', 'yes', 'ya', 'positive', 'uhuh', 'n', 'no', 'nah', 'not baobao', 'maybe', or 'perhaps'.")
+
+if __name__ == "__main__":
+    main()
