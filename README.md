@@ -76,47 +76,59 @@ The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, wit
        _setupRole(NEW_ROLE, msg.sender);
    }
 
-2. Role Management
-    Assign Roles:
-     function assignRoles(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
-    grantRole(NEW_ROLE, account);
-}
 
-    Restricted Function:
-     function restrictedFunction() public onlyRole(NEW_ROLE) {
-    // function logic
-}
+// 2. Role Management
 
-3. Mint a New Token:
+    // Assign Roles
+    function assignRoles(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        grantRole(NEW_ROLE, account);
+    }
+
+    // Restricted Function
+    function restrictedFunction() public onlyRole(NEW_ROLE) {
+        // function logic
+    }
+
+// 3. Mint a New Token
+
     function safeMint(address to) public onlyRole(NEW_ROLE) {
-    _safeMint(to, tokenCounter);
-    tokenCounter++;
-}
+        _safeMint(to, tokenCounter);
+        tokenCounter++;
+    }
 
-4. Pause the Contract:
-  function pause() public onlyRole(DEFAULT_ADMIN_ROLE) {
-    _pause();
-}
+// 4. Pause the Contract
 
-function unpause() public onlyRole(DEFAULT_ADMIN_ROLE) {
-    _unpause();
-}
+    function pause() public onlyRole(DEFAULT_ADMIN_ROLE) {
+        _pause();
+    }
 
-5. Set Royalty Info:
-  function setRoyaltyInfo(uint256 tokenId, address recipient, uint96 fraction) public onlyRole(DEFAULT_ADMIN_ROLE) {
-    _setTokenRoyalty(tokenId, recipient, fraction);
-}
+    function unpause() public onlyRole(DEFAULT_ADMIN_ROLE) {
+        _unpause();
+    }
 
-6. Set Base URI:
-  function setBaseURI(string memory _baseURI) public onlyRole(DEFAULT_ADMIN_ROLE) {
-    baseURI = _baseURI;
-}
+// 5. Set Royalty Info
 
-7. External Interfaces Replace the placeholders with actual addresses of your contracts:
-  IBlast(0xYourBlastContractAddress).configureClaimableGas();
-  IBlast(0xYourBlastContractAddress).configureGovernor(msg.sender);
-  IBlastPoints(0xYourBlastPointsContractAddress).configurePointsOperator(msg.sender);
-  
+    function setRoyaltyInfo(uint256 tokenId, address recipient, uint96 fraction) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        _setTokenRoyalty(tokenId, recipient, fraction);
+    }
+
+// 6. Set Base URI
+
+    function setBaseURI(string memory _baseURI) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        baseURI = _baseURI;
+    }
+
+    function _baseURI() internal view override returns (string memory) {
+        return baseURI;
+    }
+
+// 7. External Interfaces
+
+    function configureExternalInterfaces(address blastContractAddress, address blastPointsContractAddress) public onlyRole(DEFAULT_ADMIN_ROLE) {
+        IBlast(blastContractAddress).configureClaimableGas();
+        IBlast(blastContractAddress).configureGovernor(msg.sender);
+        IBlastPoints(blastPointsContractAddress).configurePointsOperator(msg.sender);
+    }
 
 
       
