@@ -77,7 +77,7 @@ The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, wit
    }
 
 
-// 2. Role Management
+2. Role Management
 
     // Assign Roles
     function assignRoles(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
