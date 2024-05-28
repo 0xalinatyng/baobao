@@ -77,7 +77,7 @@ The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, wit
    }
 
 
-2. Role Management
+//2. Role Management
 
     // Assign Roles
     function assignRoles(address account) public onlyRole(DEFAULT_ADMIN_ROLE) {
@@ -89,14 +89,14 @@ The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, wit
         // function logic
     }
 
-3. Mint a New Token
+//3. Mint a New Token
 
     function safeMint(address to) public onlyRole(NEW_ROLE) {
         _safeMint(to, tokenCounter);
         tokenCounter++;
     }
 
-4. Pause the Contract
+//4. Pause the Contract
 
     function pause() public onlyRole(DEFAULT_ADMIN_ROLE) {
         _pause();
@@ -106,13 +106,13 @@ The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, wit
         _unpause();
     }
 
-5. Set Royalty Info
+//5. Set Royalty Info
 
     function setRoyaltyInfo(uint256 tokenId, address recipient, uint96 fraction) public onlyRole(DEFAULT_ADMIN_ROLE) {
         _setTokenRoyalty(tokenId, recipient, fraction);
     }
 
-6. Set Base URI
+//6. Set Base URI
 
     function setBaseURI(string memory _baseURI) public onlyRole(DEFAULT_ADMIN_ROLE) {
         baseURI = _baseURI;
@@ -122,7 +122,7 @@ The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, wit
         return baseURI;
     }
 
-7. External Interfaces
+//7. External Interfaces
 
     function configureExternalInterfaces(address blastContractAddress, address blastPointsContractAddress) public onlyRole(DEFAULT_ADMIN_ROLE) {
         IBlast(blastContractAddress).configureClaimableGas();
