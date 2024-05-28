@@ -9,7 +9,7 @@ BBBB   A     A  OOOOO  BBBB   A     A  OOOOO
 
 ## Overview
 
-The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, with additional functionality for royalties, access control, pausing, and burning. It is designed to be flexible and secure, allowing for easy management and interaction with NFTs. 
+The `Baobao` NFT contract is a baobao implementation of the ERC721 standard, with additional functionality for royalties, access control, pausing, and burning. It is designed to be flexible and secure, allowing for easy management and interaction with baobao NFTs. 
 
 ## Features
 
